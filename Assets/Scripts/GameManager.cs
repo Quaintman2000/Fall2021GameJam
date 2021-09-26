@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     float timer;
     // Debris per second timer.
     float debrisDelay = 0;
-    bool waveStarted;
+    public bool waveStarted;
     int currentWave;
     void Awake()
     {
