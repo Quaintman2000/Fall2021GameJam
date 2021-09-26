@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7643f226087f00346980603185e78446
+=======
+guid: f17f390f9a2bd0d4ea10fecbd15ebbba
+>>>>>>> GameManager_Functionality
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
