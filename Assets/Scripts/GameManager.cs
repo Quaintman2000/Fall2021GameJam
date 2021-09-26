@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         public float healthModifier;
 
         [Tooltip("The amount of money given at the end of a wave.")]
-        [Range(0, Mathf.Infinity)]
+        [Range(0, 999999)]
         public int moneyBonus;
 
         [Tooltip("The debris that will fall during this wave.")]
@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
     // Stores the gameobject for the pause menu panel and the start wave panel.
     public GameObject pausePanel;
     public GameObject startWavePanel;
+
+
+
 
     float timer;
     // Debris per second timer.
