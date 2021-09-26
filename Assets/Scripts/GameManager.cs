@@ -87,43 +87,51 @@ public class GameManager : MonoBehaviour
     {
         if (!isPaused)
         {
-            if (waveStarted)
+            WaveManager();
+        }
+    }
+
+    private void WaveManager()
+    {
+        if (waveStarted)
+        {
+            if (timer >= 0)
             {
-                if (timer >= 0)
+                Debug.Log("Debris Delay Timer: " + debrisDelay);
+                Debug.Log("Timer: " + timer);
+                // If the delay between spawing debris is less than or equal to zero and
+                // current amount of debris exceed the maximum amount at a time.
+                if (debrisDelay <= 0 && debrisList.Count <= waves[currentWave].maxDebrisAtATime)
                 {
-                    Debug.Log("Debris Delay Timer: " + debrisDelay);
-                    Debug.Log("Timer: " + timer);
-                    // If the delay between spawing debris is less than or equal to zero and
-                    // current amount of debris exceed the maximum amount at a time.
-                    if (debrisDelay <= 0 && debrisList.Count <= waves[currentWave].maxDebrisAtATime)
-                    {
-                        // Pick a random spawn point
-                        Transform randomSpot = debrisSpawnPoints[Random.Range(0, debrisSpawnPoints.Length)];
-                        // Pick a random debris object.
-                        GameObject debrisToSpawn = waves[currentWave].debris[Random.Range(0, waves[currentWave].debris.Length)];
-                        // Spawn in the debris
-                        GameObject debris = Instantiate(debrisToSpawn, randomSpot.position, Quaternion.identity);
-                        debrisList.Add(debris);
-                        // Add into the delay.
+                    // Pick a random spawn point
+                    Transform randomSpot = debrisSpawnPoints[Random.Range(0, debrisSpawnPoints.Length)];
+                    // Pick a random debris object.
+                    GameObject debrisToSpawn = waves[currentWave].debris[Random.Range(0, waves[currentWave].debris.Length)];
+                    // Spawn in the debris
+                    GameObject debris = Instantiate(debrisToSpawn, randomSpot.position, Quaternion.identity);
+                    debrisList.Add(debris);
+                    // Add into the delay.
 
-                        debrisDelay = (1 / waves[currentWave].debrisPerSecond);
+                    debrisDelay = (1 / waves[currentWave].debrisPerSecond);
 
-                    }
-                    else
-                    {
-                        debrisDelay -= Time.deltaTime;
-                    }
-
-
-                    // Subtract the timer in real time.
-                    timer -= Time.deltaTime;
                 }
                 else
                 {
-                    waveStarted = false;
+                    debrisDelay -= Time.deltaTime;
                 }
 
+
+                // Subtract the timer in real time.
+                timer -= Time.deltaTime;
             }
+            else
+            {
+                // End the wave.
+                waveStarted = false;
+                // Give the money bonus/
+                money += waves[currentWave].moneyBonus;
+            }
+
         }
     }
 
