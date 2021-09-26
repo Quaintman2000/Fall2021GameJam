@@ -14,6 +14,7 @@ public class AutoAim : MonoBehaviour
 
     public string enemyTag = "Enemy";
 
+    public AudioClip shootSound;
     public GameObject bulletPrefab;
     public Transform firePoint;
 
@@ -72,7 +73,7 @@ public class AutoAim : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-
+        AudioSource.PlayClipAtPoint(shootSound, firePoint.position);
         if (bullet != null)
             bullet.Seek(target);
     }
