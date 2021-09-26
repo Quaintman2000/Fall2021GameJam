@@ -13,7 +13,9 @@ public class Bullet : MonoBehaviour
     public float foodDamage;
 
     public GameObject hitEffect;
-   
+    public float speed = 60f;
+    Transform target;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Check to see if they have DebrisHealth script.
@@ -44,16 +46,14 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-}
-
-    public float speed = 60f;
+   
     public void Seek(Transform _target)
     {
         target = _target;
     }
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             Destroy(gameObject);
             return;
@@ -65,3 +65,6 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 
     }
+}
+
+   
