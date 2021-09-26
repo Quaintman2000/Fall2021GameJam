@@ -21,14 +21,20 @@ public class MoneyGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moneyGenCountdown <= 0f)
+
+        if (GameManager.instance.waveStarted && !GameManager.instance.isPaused)
         {
-            moneyMade = Random.Range(moneyGenMin, moneyGenMax);
-            moneyGenCountdown = moneyGenRate;
-            GameManager.instance.money += moneyMade;
+
+            if (moneyGenCountdown <= 0f)
+            {
+                moneyMade = Random.Range(moneyGenMin, moneyGenMax);
+                moneyGenCountdown = moneyGenRate;
+                GameManager.instance.money += moneyMade;
+            }
+
+            moneyGenCountdown -= Time.deltaTime;
         }
 
-        moneyGenCountdown -= Time.deltaTime;
 
     }
 }
