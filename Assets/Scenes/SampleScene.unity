@@ -926,16 +926,28 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
+      propertyPath: startingMoney
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
       propertyPath: waves.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
       propertyPath: waves.Array.data[0].timer
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
       propertyPath: debrisSpawnPoints.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
+      propertyPath: waves.Array.data[0].moneyBonus
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
       propertyPath: debrisSpawnPoints.Array.data[0]
@@ -955,7 +967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
       propertyPath: waves.Array.data[0].debrisPerSecond
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5278560702804302374, guid: 0fd7cf06dabeafc47a6fbdd0ce80a1ad, type: 3}
       propertyPath: waves.Array.data[0].maxDebrisAtATime
