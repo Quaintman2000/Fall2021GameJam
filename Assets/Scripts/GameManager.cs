@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
     // Create a static instance of this game manager.
     public static GameManager instance;
     [Header("Data:")]
@@ -25,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Stores the current debris existing in the scene.
     public List<GameObject> debrisList = new List<GameObject>();
     public Transform[] debrisSpawnPoints;
+
     [System.Serializable]
     public struct Wave
     {
@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
         public GameObject[] debris;
     }
 
-
     [Header("UI Assests:")]
     // Stores the text UI's for the points and money.
     public Text pointsText;
@@ -60,6 +59,15 @@ public class GameManager : MonoBehaviour
     // Stores the gameobject for the pause menu panel and the start wave panel.
     public GameObject pausePanel;
     public GameObject startWavePanel;
+
+    [Header("ShopBuildStuff:")]
+    public GameObject laserTurrentPrefab;
+    public GameObject rocketTurretPrefab;
+    public GameObject fireTurretPrefab;
+    public GameObject moneyTurretPrefab;
+    private TurretBlueprint turrentToBuild;
+    //will only allow me to see if i can build a turret
+    public bool CanBuild { get { return turrentToBuild != null; } }
 
     float timer;
     // Debris per second timer.
@@ -82,12 +90,21 @@ public class GameManager : MonoBehaviour
     {
         health = maxHealth;
         money = startingMoney;
+        pointsText.text = points.ToString();
+        moneyText.text = money.ToString();
     }
     void Update()
     {
         if (!isPaused)
         {
             WaveManager();
+        }
+        moneyText.text = money.ToString();
+        pointsText.text = points.ToString();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangePauseState(true);
         }
     }
 
@@ -148,6 +165,8 @@ public class GameManager : MonoBehaviour
             isPaused = true;
             // Sets the timescale to 0.
             Time.timeScale = 0;
+            pausePanel.SetActive(true);
+            
         }
         // If the game is not paused.
         else
@@ -156,6 +175,7 @@ public class GameManager : MonoBehaviour
             isPaused = false;
             // Sets the timescale to 1.
             Time.timeScale = 1;
+            pausePanel.SetActive(false);
         }
     }
 
@@ -173,5 +193,24 @@ public class GameManager : MonoBehaviour
         waves[waveIndex].debrisPerSecond = Mathf.Clamp(waves[waveIndex].debrisPerSecond, 0.001f, Mathf.Infinity);
     }
 
+    public void BuildTurretOn(TurretNodes node)
+    {
+        //will check to see if you can buy a turret if you don't have enough money can't build
+        if (money < turrentToBuild.cost)
+        {
+            Debug.Log("not enough money to build");
+            return;
+        }
+        //will subtract the amount of money you have from the cost of the turret you bought
+        money -= turrentToBuild.cost;
+        Debug.Log("turret build money left:" + money);
+        //allows you to build the turrent
+        GameObject turret = (GameObject)Instantiate(turrentToBuild.prefab, node.GetBuildPostion(), Quaternion.identity);
+        node.turret = turret;
+    }
+    public void SelectTurretToBuild(TurretBlueprint turret)
+    {
+        turrentToBuild = turret;
+    }
 }
 
