@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         // Check to see if they have DebrisHealth script.
         if(collision.gameObject.GetComponent<DebrisHealth>())
         {
-            float damage;
+            float damage = 0;
             // Give the appropriate amount of damage.
             if(collision.gameObject.GetComponent<DebrisHealth>().debrisType == DebrisHealth.DebrisType.Plastic)
             {
@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
                 
                 Debug.LogError("Debris type has not been set for: " + collision.gameObject.name);
             }
+            collision.gameObject.GetComponent<DebrisHealth>().TakeDamage(damage);
         }
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);

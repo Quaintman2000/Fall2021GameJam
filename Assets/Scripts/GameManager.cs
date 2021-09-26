@@ -195,7 +195,6 @@ public class GameManager : MonoBehaviour
         waveStarted = true;
         waves[currentWave].debrisPerSecond = Mathf.Clamp(waves[currentWave].debrisPerSecond, 0.001f, Mathf.Infinity);
         currentWave += 1;
-        waves[waveIndex].debrisPerSecond = Mathf.Clamp(waves[waveIndex].debrisPerSecond, 0.001f, Mathf.Infinity);
     }
 
     public void BuildTurretOn(TurretNodes node)
