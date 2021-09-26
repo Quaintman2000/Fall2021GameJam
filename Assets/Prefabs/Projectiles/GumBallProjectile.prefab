@@ -11,6 +11,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: GumBallProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 1994028269842890575, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3527457
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994028269842890575, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7456341
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994028269842890575, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.76060826
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994028269842890575, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.7802644
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994028269842890575, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994028269842890575, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337832310012028792, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d74c083a2976d142abe50275b2edbe0, type: 3}
     - target: {fileID: 5813986145968893574, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -29,19 +57,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813986145968893574, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7057995
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5813986145968893574, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813986145968893574, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813986145968893574, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.70841163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813986145968893574, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -53,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813986145968893574, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90.212
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ce45368ffcc2942ae47725a1f50381, type: 3}
