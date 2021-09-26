@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 2331565669097457780}
   - component: {fileID: 8277630011541639613}
   - component: {fileID: 9167521492989488322}
+  - component: {fileID: 4694038522961120257}
   m_Layer: 0
   m_Name: FallingBlock
   m_TagString: Untagged
@@ -134,6 +135,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+--- !u!114 &4694038522961120257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802090808375973898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fcbd04134f8c54686f89c9a8aa280f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisType: 3
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  healthBar: {fileID: 1174578333672676200}
+  health: 0
+  maxHealth: 0
+  points: 0
 --- !u!1 &3439360037814237725
 GameObject:
   m_ObjectHideFlags: 0

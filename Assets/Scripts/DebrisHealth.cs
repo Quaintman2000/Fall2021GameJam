@@ -13,11 +13,6 @@ public class DebrisHealth : MonoBehaviour
     public UnityEvent OnDamaged;
     public UnityEvent OnDeath;
 
-    // Stores how much damage certain types of damage would do.
-    public float laserDamage;
-    public float rocketDamage;
-    public float fireDamage;
-
     // Stores the health bar stuff.
     public HealthBar healthBar;
     public float health;
