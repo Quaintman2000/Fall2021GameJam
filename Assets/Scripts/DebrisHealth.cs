@@ -52,6 +52,17 @@ public class DebrisHealth : MonoBehaviour
             GameManager.instance.debrisList.Remove(this.gameObject);
             GameManager.instance.points += points;
             OnDeath.Invoke();
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.GetComponent<GameManager>())
+        {
+            collision.gameObject.GetComponent<GameManager>().TakeDamage(1);
+            GameManager.instance.debrisList.Remove(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

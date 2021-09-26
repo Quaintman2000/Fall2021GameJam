@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
                     // Spawn in the debris
                     GameObject debris = Instantiate(debrisToSpawn, randomSpot.position, Quaternion.identity);
                     debrisList.Add(debris);
+                    debris.GetComponent<DebrisHealth>().maxHealth *= waves[currentWave].healthModifier;
                     // Add into the delay.
 
                     debrisDelay = (1 / waves[currentWave].debrisPerSecond);
@@ -227,6 +228,20 @@ public class GameManager : MonoBehaviour
         money = 0;
         points = 0;
         currentWave = 0;
+    }
+    public void TakeDamage(int damage)
+    {
+        // Make sure the damage > 0. If not, set it = 0.
+        damage = (int)Mathf.Clamp(damage, 0, Mathf.Infinity);
+
+        health -= damage;
+       
+
+        if (health <= 0)
+        {
+            GameOver();
+            
+        }
     }
 }
 
