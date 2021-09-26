@@ -82,6 +82,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4694038522961120257, guid: 9328505188f796f46b3aa0ed4687d47e, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694038522961120257, guid: 9328505188f796f46b3aa0ed4687d47e, type: 3}
+      propertyPath: points
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694038522961120257, guid: 9328505188f796f46b3aa0ed4687d47e, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694038522961120257, guid: 9328505188f796f46b3aa0ed4687d47e, type: 3}
       propertyPath: debrisType
       value: 1
       objectReference: {fileID: 0}
