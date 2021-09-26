@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -133,6 +134,7 @@ public class GameManager : MonoBehaviour
                 waveStarted = false;
                 // Give the money bonus/
                 money += waves[currentWave].moneyBonus;
+                startWavePanel.SetActive(true);
             }
 
         }
@@ -167,14 +169,26 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void StartWave(int waveIndex)
+    public void StartWave()
     {
-        currentWave = waveIndex;
+        currentWave += Mathf.Clamp(currentWave, 0, waves.Length-1);
         // Set the timer.
-        timer = waves[waveIndex].timer;
+        timer = waves[currentWave].timer;
         waveStarted = true;
-        waves[waveIndex].debrisPerSecond = Mathf.Clamp(waves[waveIndex].debrisPerSecond, 0.001f, Mathf.Infinity);
+        waves[currentWave].debrisPerSecond = Mathf.Clamp(waves[currentWave].debrisPerSecond, 0.001f, Mathf.Infinity);
+        currentWave += 1;
     }
 
+    public void GameOver()
+    {
+        waveStarted = false;
+        SceneManager.LoadScene("EndGameScene");
+    }
+    public void ResetData()
+    {
+        money = 0;
+        points = 0;
+        currentWave = 0;
+    }
 }
 
